@@ -1,31 +1,39 @@
 #include<stdio.h>
 #include<iostream>
-
-#define BOLDRED "\033[1m\033[31m"
-#define BOLDGREEN   "\033[1m\033[32m"
+#include "class/lane.h"
 
 using namespace std;
 
-class Lane {
-    float density,duration;
 
-    Lane(float density)
-    {
-        this->density = density;
-        this->duration = setDuration(this->density);
-    }
+// // Class representing each lane
+// class Lane{
 
-    float setDuration(float density)
-    {
-        // Equation to convert density to appropriate duration (for now)
-        return (float)(0.6*(density) + 20);
-    }
-    
-};
+//     private:
+//     float density,duration;
+
+//     public:
+//     void setDensity(float density)
+//     {
+//         this->density = density;
+//         this->duration = setDuration(this->density);
+//     }
+//     float setDuration(float density){
+//         // Equation to convert density to appropriate duration (for now)
+//         return (float)(0.6*(density) + 20);
+//     }
+
+// };
 
 int main()
 {
     // Reads density array from file
     float density[] = {20,100,30,50};
+    Lane lanes[sizeof(density)/sizeof(density[0])];
+
+    printf("workking\n");
+    Lane a;
+    // a.setDensity(20);
+    // printf("%f\n",a.getDensity());
+    a.setDensity(20);
 
 }
