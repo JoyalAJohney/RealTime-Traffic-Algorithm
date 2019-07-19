@@ -1,8 +1,9 @@
 class Lane 
 {
     private:
+    char laneName;
     float density,duration;
-
+ 
     public:
     void setDensity(float density)
     {
@@ -21,5 +22,16 @@ class Lane
     float getDuration()
     {
         return this->duration;
+    }
+    void setName(int index)
+    {
+        if(index == 0)
+            this->laneName = 'A';
+        else if(index == 1)
+            this->laneName = 'B';
+        else if(index == 2)
+            this->laneName = 'C';
+        else if(index == 3)
+            this->laneName = 'D';
     }
 };
