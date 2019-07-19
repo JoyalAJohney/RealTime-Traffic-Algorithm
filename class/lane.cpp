@@ -18,4 +18,8 @@ class Lane
     {
         return this->density;
     }
+    float getDuration()
+    {
+        return this->duration;
+    }
 };
