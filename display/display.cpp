@@ -7,25 +7,32 @@ using namespace std;
 #define BOLDGREEN   "\033[1m\033[32m"
 
 
-void display()
+void display(char lane)
 {
-    printf(BOLDGREEN "|A\t");
-    printf(BOLDRED "|B\t|C\t|D\n\n");
+    if(lane == 'A')
+    {
+        printf(BOLDGREEN "|A\t");
+        printf(BOLDRED "|B\t|C\t|D\n\n");
+    }
 
-    printf(BOLDRED "|A\t");
-    printf(BOLDGREEN "|B\t");
-    printf(BOLDRED "|C\t|D\n\n");
+    if(lane == 'B')
+    {
+        printf(BOLDRED "|A\t");
+        printf(BOLDGREEN "|B\t");
+        printf(BOLDRED "|C\t|D\n\n");
+    }
 
-    printf(BOLDRED "|A\t|B\t");
-    printf(BOLDGREEN "|C\t");
-    printf(BOLDRED "|D\n\n");
+    if(lane == 'C')
+    {
+        printf(BOLDRED "|A\t|B\t");
+        printf(BOLDGREEN "|C\t");
+        printf(BOLDRED "|D\n\n");
+    }
 
-    printf(BOLDRED "|A\t|B\t|C\t");
-    printf(BOLDGREEN "|D\t");
+    if(lane == 'D')
+    {
+        printf(BOLDRED "|A\t|B\t|C\t");
+        printf(BOLDGREEN "|D\n\n");
+    }
     
 } 
-
-int main()
-{
-    display();
-}

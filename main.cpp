@@ -3,19 +3,18 @@
 #include <thread>
 #include <bits/stdc++.h> 
 #include "class/lane.cpp"
-#include "Schedule/schedule.cpp"
+#include "display/display.cpp"
+// #include "Schedule/schedule.cpp"
 
 using namespace std;
 void sortLanes(Lane*,int);
+void schedule(Lane);
 
 int main()
 {
     // Reads density array from file
-    float density[] = {20,10,30,50};
+    float density[] = {25,100,10,50};
     int n = sizeof(density)/sizeof(density[0]);
-
-    // Sort array
-    // sort(density,density+n);
 
     // Create objects for each lane
     Lane lanes[n];
@@ -35,10 +34,8 @@ int main()
     for(i=0;i<n;i++)
     {
         // New Thread to perform schedule
-        thread scheduleThread(schedule);
+        thread scheduleThread(schedule,lanes[i]);
         scheduleThread.join();
-        // Main Thread waits till a lane has finished schedule
-        this_thread::sleep_for(chrono::milliseconds((int)lanes[i].getDuration()*100));
     }
 
 
@@ -68,4 +65,13 @@ void sortLanes(Lane *lanes,int n)
             lanes[max_pos] = temp;
         }
     }
+}
+
+
+// Schedule function
+void schedule(Lane lane)
+{
+    display(lane.getName());
+    this_thread::sleep_for(chrono::milliseconds((int)lane.getDuration()*100));
+
 }

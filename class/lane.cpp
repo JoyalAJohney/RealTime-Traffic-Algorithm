@@ -34,4 +34,8 @@ class Lane
         else if(index == 3)
             this->laneName = 'D';
     }
+    char getName()
+    {
+        return this->laneName;
+    }
 };
